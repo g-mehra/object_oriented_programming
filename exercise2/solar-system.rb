@@ -5,6 +5,7 @@ class System
 
 
   def self.add(body)
+    @@bodies.each {|object| return if object.name == body.name}
     @@bodies << body
   end
 
@@ -14,11 +15,14 @@ class System
 
   def self.total_mass
     @@mass_in_system = 0
+
     @@bodies.each do |body|
       @@mass_in_system += body.mass
     end
+
     @@mass_in_system
   end
+
 
 end
 
